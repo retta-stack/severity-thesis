@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Severity Is the Moat</title>
+<meta name="description" content="Why the most-feared corner of California healthcare is the one place a billion-dollar roll-up cannot follow, and the one price the state cannot simply set.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4EEE0;
+    --paper-2:#EBE3D1;
+    --ink:#211E17;
+    --ink-soft:#4D4638;
+    --ink-faint:#7A715C;
+    --oxblood:#7B2E2A;
+    --oxblood-deep:#591F1C;
+    --gold:#9A7A3C;
+    --rule:#D8CCB0;
+    --struck:#B3A98F;
+    --display:"Fraunces","Hoefler Text",Georgia,"Times New Roman",serif;
+    --body:"Newsreader","Iowan Old Style","Palatino Linotype",Georgia,serif;
+    --measure:34rem;
+  }
+  *{box-sizing:border-box}
+  html{font-size:18px;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-weight:400;
+    line-height:1.62;
+    font-optical-sizing:auto;
+    text-rendering:optimizeLegibility;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* paper grain */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+    opacity:.05;mix-blend-mode:multiply;
+  }
+  .wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(1.4rem,4vw,4rem) clamp(1.1rem,5vw,2rem) 6rem}
+
+  /* ---- column + margin-note grid ---- */
+  .col{max-width:var(--measure);margin-left:max(0px,calc((100% - var(--measure) - 21rem)/2));}
+  @media(max-width:1080px){.col{margin-left:auto;margin-right:auto}}
+
+  .sidenote{
+    float:right;clear:right;
+    width:18rem;margin-right:-21rem;margin-top:.3rem;margin-bottom:1rem;
+    font-family:var(--body);font-size:.74rem;line-height:1.5;color:var(--ink-soft);
+    text-align:left;position:relative;
+  }
+  .sidenote .sn-num,.sn-ref{
+    font-family:var(--display);font-weight:600;color:var(--oxblood);
+  }
+  .sn-ref{font-size:.62em;vertical-align:super;line-height:0;padding:0 .06em;cursor:default}
+  .sidenote .sn-num{font-size:.8rem;margin-right:.35em}
+  @media(max-width:1080px){
+    .sidenote{float:none;width:auto;margin:.6rem 0 1.1rem;padding:.55rem .85rem;
+      background:var(--paper-2);border-left:2px solid var(--oxblood);font-size:.8rem}
+  }
+
+  /* ---- masthead ---- */
+  .masthead{max-width:var(--measure);margin:0 auto 2.2rem;text-align:center;opacity:0;transform:translateY(14px);animation:rise 1s .1s cubic-bezier(.2,.7,.2,1) forwards}
+  .kicker{font-family:var(--display);font-weight:600;letter-spacing:.34em;text-transform:uppercase;font-size:.66rem;color:var(--oxblood);margin-bottom:1.6rem}
+  h1.title{
+    font-family:var(--display);font-weight:600;font-style:normal;
+    font-size:clamp(2.7rem,8vw,4.6rem);line-height:.98;letter-spacing:-.012em;margin:0;color:var(--ink);
+  }
+  h1.title em{font-style:italic;color:var(--oxblood);font-weight:500}
+  .subtitle{font-family:var(--body);font-style:italic;font-size:clamp(1.02rem,2.6vw,1.22rem);line-height:1.45;color:var(--ink-soft);max-width:30rem;margin:1.3rem auto 0;font-weight:400}
+  .byline{font-family:var(--display);text-transform:uppercase;letter-spacing:.22em;font-size:.62rem;color:var(--ink-faint);margin-top:1.8rem}
+  .rule-orn{display:flex;align-items:center;justify-content:center;gap:.7rem;margin:2.4rem auto 0;max-width:var(--measure);color:var(--oxblood)}
+  .rule-orn::before,.rule-orn::after{content:"";height:1px;flex:1;background:var(--rule)}
+  .rule-orn span{font-family:var(--display);font-size:.9rem;letter-spacing:.3em}
+
+  .epi-top{max-width:var(--measure);margin:2.2rem auto 0;text-align:center;font-style:italic;color:var(--ink-soft);font-size:1.02rem}
+  .epi-top cite{display:block;font-style:normal;font-family:var(--display);text-transform:uppercase;letter-spacing:.18em;font-size:.6rem;color:var(--ink-faint);margin-top:.7rem}
+
+  /* ---- body ---- */
+  p{margin:0 0 1.15rem}
+  .lede{margin-top:2.6rem}
+  .lede::first-letter{
+    font-family:var(--display);font-weight:600;float:left;font-size:4.6rem;line-height:.78;
+    padding:.36rem .55rem 0 0;color:var(--oxblood);
+  }
+  .section{margin-top:3.4rem}
+  .sec-head{display:flex;align-items:baseline;gap:1rem;margin:0 0 .2rem}
+  .sec-num{font-family:var(--display);font-weight:600;font-size:1.05rem;color:var(--oxblood);letter-spacing:.05em;min-width:2.4rem}
+  h2{font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,4vw,2rem);line-height:1.06;letter-spacing:-.01em;margin:0;color:var(--ink)}
+  .epi{font-style:italic;color:var(--ink-soft);font-size:.96rem;margin:.9rem 0 1.6rem;padding-left:1rem;border-left:2px solid var(--rule)}
+  .epi cite{display:block;font-style:normal;font-family:var(--display);text-transform:uppercase;letter-spacing:.16em;font-size:.58rem;color:var(--ink-faint);margin-top:.5rem}
+  .drop-line{font-variant:small-caps;letter-spacing:.02em}
+  strong,b{font-weight:600}
+  em{font-style:italic}
+  .pull{font-family:var(--display);font-weight:500;font-size:1.45rem;line-height:1.28;color:var(--oxblood-deep);margin:2rem 0;text-align:center;font-style:italic;letter-spacing:-.01em}
+
+  /* ---- figures ---- */
+  figure{margin:2.6rem 0;max-width:50rem;}
+  @media(min-width:1081px){figure{margin-left:-2.5rem}}
+  figure svg{width:100%;height:auto;display:block;background:var(--paper-2);border:1px solid var(--rule);border-radius:2px}
+  figcaption{font-family:var(--display);font-size:.72rem;letter-spacing:.02em;color:var(--ink-faint);margin-top:.7rem;line-height:1.45}
+  figcaption b{color:var(--oxblood);font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:.64rem;display:block;margin-bottom:.2rem}
+
+  /* svg type */
+  .svgbox{fill:var(--paper);stroke:var(--ink-soft);stroke-width:1.1}
+  .svgbox.np{fill:#EFE7D4;stroke:var(--gold)}
+  .svgbox.hi{fill:#F0DEDA;stroke:var(--oxblood)}
+  .svglabel{font-family:var(--body);fill:var(--ink);font-weight:500}
+  .svgsub{font-family:var(--body);fill:var(--ink-soft);font-style:italic}
+  .svgnote{font-family:var(--display);fill:var(--ink-faint);letter-spacing:.04em}
+  .svgkey{font-family:var(--display);fill:var(--oxblood);font-weight:600;letter-spacing:.04em}
+  .flow{stroke:var(--ink-soft);stroke-width:1.4;fill:none}
+  .flow.dash{stroke-dasharray:4 4;stroke:var(--ink-faint)}
+  .flow.ox{stroke:var(--oxblood);stroke-width:2}
+
+  /* ---- endnotes ---- */
+  .endnotes{max-width:var(--measure);margin:4.5rem auto 0;padding-top:1.6rem;border-top:1px solid var(--rule)}
+  .endnotes h3{font-family:var(--display);text-transform:uppercase;letter-spacing:.2em;font-size:.66rem;color:var(--oxblood);margin:0 0 1rem}
+  .endnotes ol{margin:0;padding-left:1.3rem;font-size:.74rem;line-height:1.55;color:var(--ink-soft)}
+  .endnotes li{margin-bottom:.6rem}
+  .endnotes a{color:var(--oxblood-deep);text-decoration:underline;text-decoration-thickness:.5px;text-underline-offset:2px}
+  .endnotes a:hover{color:var(--oxblood)}
+  .endnotes li::marker{color:var(--oxblood);font-family:var(--display)}
+  .colophon{max-width:var(--measure);margin:2.4rem auto 0;font-size:.72rem;color:var(--ink-faint);font-style:italic;line-height:1.55}
+  .sign{font-family:var(--display);font-style:italic;font-size:1.05rem;color:var(--oxblood);margin-top:1.4rem}
+
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media print{
+    @page{margin:0.7in}
+    html{font-size:11.5pt}
+    body{background:#fff}
+    body::before{display:none}
+    .wrap{max-width:none;padding:0}
+    .masthead{opacity:1 !important;transform:none !important;animation:none !important}
+    .col,.endnotes,.colophon{max-width:38rem;margin-left:auto;margin-right:auto}
+    .sidenote{float:none;clear:none;width:auto;margin:.55rem 0 1rem;padding:.5rem .8rem;
+      background:#F4EEE0;border-left:2px solid #7B2E2A;font-size:.78rem;color:#2b2b2b}
+    figure{margin:1.5rem auto;page-break-inside:avoid;break-inside:avoid}
+    figure svg{background:#F7F2E6}
+    h2,.sec-head{page-break-after:avoid;break-after:avoid}
+    .pull{page-break-inside:avoid}
+    a{color:#591F1C;text-decoration:none}
+    .endnotes a{text-decoration:underline}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="kicker">RDM Partners &middot; A Thesis</div>
+    <h1 class="title">Severity Is<br>the <em>Moat</em></h1>
+    <p class="subtitle">Why the most-feared corner of California healthcare is the one place a billion-dollar roll-up cannot follow, and the one price the state cannot simply set.</p>
+    <div class="byline">Palm Desert &amp; the Central Valley &middot; June 2026</div>
+    <div class="rule-orn"><span>&sect;</span></div>
+    <div class="epi-top">"Invert, always invert."<cite>Charlie Munger</cite></div>
+  </header>
+
+  <article class="col">
+
+    <p class="lede">On a quiet street in California's Central Valley there is a six-bedroom house that looks like every other house on the block. There is a lawn. There is a basketball hoop bolted over the garage. Inside lives a man in his forties who, a generation ago, would have spent his life behind the walls of a state institution. He can no longer live with his parents; they cannot lift him, and they will not always be alive. He has behaviors that frighten landlords and a history that frightens almost everyone else. Roughly ninety-five cents of every dollar that keeps his house running, that pays the people who care for him in shifts around the clock, comes from a single government payor.</p>
+
+    <p>Every spreadsheet in private equity has been trained to recoil from that last sentence. One payor. Government rates. A population the press treats as a scandal waiting to be written. I have spent the better part of a year inside this corner of American healthcare, and I have come to believe close to the opposite of what the spreadsheets believe. The thing the market fears about this house is the same thing that makes it one of the most defensible cash flows I have ever underwritten.<span class="sn-ref">1</span><span class="sidenote"><span class="sn-num">1</span>This essay is written in the first person from the perspective of a control investor evaluating the lower-middle-market of California developmental-services providers. It refers throughout to "a Central Valley operator" rather than to any named company; the operator quotations are real and are drawn from a founder interview. Industry facts, statutes, and figures are public and cited.</span> The fear is the moat.</p>
+
+    <p>Let me show you what I see.</p>
+
+    <!-- ======================= I ======================= -->
+    <section class="section">
+      <div class="sec-head"><div class="sec-num">I</div><h2>The Consensus, and Why It Is Correct</h2></div>
+      <p class="epi">"The private equity market just went bonkers over autism. We never, ever, ever, ever have seen that."<cite>Dexter Braff, healthcare M&amp;A advisor</cite></p>
+
+      <p>I want to begin by conceding the bear case in full, because it is not stupid. It is, in fact, correct, for the buyers it describes.</p>
+
+      <p>In 2018, Blackstone bought a majority stake in the Center for Autism and Related Disorders, the largest autism-services chain in the country, in a deal that valued it at roughly six hundred million dollars, more than twenty times its earnings.<span class="sn-ref">2</span><span class="sidenote"><span class="sn-num">2</span>NBC News investigation into CARD and Blackstone; proto.life (reporting CEPR's analysis); Behavioral Health Business on the July 2023 bankruptcy sale. Blackstone acquired roughly a 70% stake at a valuation near $600M; the Chapter 11 sale closed near $48.5M.</span> The demand behind that business was, for every practical purpose, infinite: diagnoses climbing, waitlists stretching for years, a line out the door of every clinic. Five years later, in the summer of 2023, the company filed for bankruptcy and was sold out of Chapter 11 for about forty-eight million dollars. More than ninety percent of the equity value had evaporated against a rising tide of demand.</p>
+
+      <p>What killed it was not a shortage of customers. It was the customer's price. As the company's Medicaid share of revenue climbed from roughly a tenth in 2017 to better than a third by 2022, the book turned unprofitable, because the government paid less than the care cost to deliver. The company began discouraging the lower-billing children and chasing the higher-billing ones; it abandoned ten states, citing, in its own filings, "unsustainable reimbursement rates." A former executive put the lesson as plainly as it can be put: "In the end, we were upside down on our Medicaid population."<span class="sn-ref">3</span><span class="sidenote"><span class="sn-num">3</span>proto.life (Feb 2024), summarizing the Center for Economic and Policy Research. CARD's Medicaid share rose from about 10% (2017) to 37% (May 2022); the company lost roughly $82M in the year to April 2023 and carried about $245M of debt at filing.</span> Demand was never the problem. Demand is not revenue when a government sets the price.</p>
+
+      <p>This is a pattern, not an unlucky deal. Sevita, the largest operator of disability group homes in the country, carries a junk credit rating after its owners pulled more than seven hundred million dollars in debt-funded dividends out of it and a sister company.<span class="sn-ref">4</span><span class="sidenote"><span class="sn-num">4</span>Moody's rated Sevita Caa1. Private Equity Stakeholder Project and Stateline (May 2025) document more than $737M in debt-funded dividends extracted by Sevita's and Help at Home's owners.</span> When Alabama declined to raise a home-care rate that was already the lowest of any reporting state, the owner of Help at Home simply walked, ending forty-five years of operation and laying off hundreds of caregivers; a year later it paid itself a quarter-billion-dollar dividend. AdvoServ, which ran sixty-two group homes in New Jersey, ceased to exist entirely in 2019 after two residents choked to death and the state moved to pull its license. The advocacy world keeps a tidy summary of the arithmetic: a firm that has to double or triple its money in four to seven years, the Private Equity Stakeholder Project observes, finds that "challenging to do in IDD services without cutting costs in a way that compromises the quality of care."</p>
+
+      <p>So the consensus is not wrong. A leveraged national platform that buys this work, loads it with debt, and runs the standard cost-out playbook will, often enough, destroy both the asset and the people inside it. If that were the only way to own this cash flow, I would pass too. The argument of everything that follows is that it is not the only way, and that the very facts that doom the cost-cutter are the facts that protect the operator who does the opposite.</p>
+
+      <!-- CARD FALL -->
+      <figure>
+        <svg viewBox="0 0 800 300" role="img" aria-label="Chart of CARD enterprise value falling from 600 million to 48.5 million while Medicaid revenue share rose from 10 to 37 percent">
+          <text x="34" y="40" class="svgkey" font-size="13">ENTERPRISE VALUE</text>
+          <text x="540" y="40" class="svgnote" font-size="13" text-anchor="end" fill="#9A7A3C" style="font-weight:600">MEDICAID SHARE OF REVENUE</text>
+          <!-- axes baseline -->
+          <line x1="60" y1="250" x2="560" y2="250" class="flow" stroke="#D8CCB0"/>
+          <!-- EV fall -->
+          <circle cx="110" cy="70" r="5" fill="#7B2E2A"/>
+          <text x="110" y="58" text-anchor="middle" class="svglabel" font-size="13" font-weight="600">$600M</text>
+          <text x="110" y="272" text-anchor="middle" class="svgnote" font-size="11">2018</text>
+          <line x1="110" y1="70" x2="500" y2="232" class="flow ox"/>
+          <circle cx="500" cy="232" r="5" fill="#7B2E2A"/>
+          <text x="500" y="224" text-anchor="middle" class="svglabel" font-size="13" font-weight="600">$48.5M</text>
+          <text x="500" y="272" text-anchor="middle" class="svgnote" font-size="11">2023 &middot; Chapter 11</text>
+          <!-- Medicaid share rising (dashed gold) -->
+          <line x1="110" y1="225" x2="500" y2="120" class="flow dash" stroke="#9A7A3C" stroke-width="1.8"/>
+          <circle cx="110" cy="225" r="4" fill="#9A7A3C"/><text x="128" y="223" class="svgnote" font-size="11" fill="#9A7A3C">10%</text>
+          <circle cx="500" cy="120" r="4" fill="#9A7A3C"/><text x="516" y="120" class="svgnote" font-size="11" fill="#9A7A3C">37%</text>
+          <!-- caption block right -->
+          <text x="600" y="150" class="svgsub" font-size="15">Infinite demand.</text>
+          <text x="600" y="174" class="svglabel" font-size="16" font-weight="600" fill="#7B2E2A">Still bankrupt.</text>
+          <text x="600" y="205" class="svgnote" font-size="11.5">The demand never fell.</text>
+          <text x="600" y="221" class="svgnote" font-size="11.5">The government's price did</text>
+          <text x="600" y="237" class="svgnote" font-size="11.5">not cover the cost of care.</text>
+        </svg>
+        <figcaption><b>Figure 1 &middot; The CARD Fall</b>The largest autism provider in the country lost more than 90% of its value in five years, as its government-paid share of revenue rose. Demand is not revenue when a single payor sets the price.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ======================= II ======================= -->
+    <section class="section">
+      <div class="sec-head"><div class="sec-num">II</div><h2>Demand Is Not Revenue</h2></div>
+      <p class="epi">"Unjustified isolation is properly regarded as discrimination based on disability."<cite>Olmstead v. L.C., 527 U.S. 581 (1999)</cite></p>
+
+      <p>Start with the demand, because it is the part everyone gets right.</p>
+
+      <p>The supply of family caregiving is collapsing on a demographic schedule you can set a watch by. Nearly a million American households contain an adult with an intellectual or developmental disability living with, and wholly dependent on, a caregiver who is themselves aging out of the ability to provide it.<span class="sn-ref">5</span><span class="sidenote"><span class="sn-num">5</span>Medicaid.gov, on supporting adults with IDD and their aging caregivers. CDC autism prevalence: about 1 in 36 children, up from roughly 1 in 150 in 2000. KFF: more than 710,000 people on Medicaid home- and community-based waiver waiting lists in 2024.</span> Autism prevalence has gone from one child in a hundred fifty at the turn of the century to one in thirty-six today, and each of those diagnoses is a multi-decade service need walking slowly toward adulthood. Across the country, more than seven hundred thousand people sit on waiting lists for home- and community-based disability services, many for a decade. California alone serves around half a million people and adds roughly forty thousand a year, the equivalent, the state's own analysts note, of standing up an entire new regional center every twelve months. None of this is cyclical. People with severe disabilities need care in a recession and in a boom. The need is demographic and legal, not economic.</p>
+
+      <p>And yet every sentence in that paragraph describes <em>demand</em>, and demand is not revenue. The bankruptcy in the last section happened to a company with a hurricane of demand at its back. The throttle on this business was never the number of people who need care. The throttle is two things the public never sees: whether the state authorizes the placement, and what the state agrees to pay for it. To understand why some of these cash flows are fragile and some are nearly sovereign, you have to stop looking at the demand and start following the money.</p>
+
+      <p class="pull">The person is an entitlement. The provider is mostly a price-taker. And then there is the exception.</p>
+
+      <!-- MONEY MAP -->
+      <figure>
+        <svg viewBox="0 0 820 660" role="img" aria-label="Diagram of how a dollar of California developmental-services funding flows from the federal government and the state General Fund through the Department of Developmental Services and the regional centers to providers and the person">
+          <defs>
+            <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#4D4638"/>
+            </marker>
+            <marker id="arox" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#7B2E2A"/>
+            </marker>
+          </defs>
+
+          <!-- sources -->
+          <rect class="svgbox" x="70" y="24" width="290" height="56" rx="3"/>
+          <text x="215" y="48" text-anchor="middle" class="svglabel" font-size="14" font-weight="600">U.S. Treasury / CMS</text>
+          <text x="215" y="67" text-anchor="middle" class="svgsub" font-size="11.5">federal Medicaid match</text>
+
+          <rect class="svgbox" x="460" y="24" width="290" height="56" rx="3"/>
+          <text x="605" y="48" text-anchor="middle" class="svglabel" font-size="14" font-weight="600">California General Fund</text>
+          <text x="605" y="67" text-anchor="middle" class="svgsub" font-size="11.5">the state's own dollars</text>
+
+          <!-- arrows to DDS -->
+          <path class="flow" d="M215 80 L215 120 L350 120 L350 150" marker-end="url(#ar)"/>
+          <path class="flow" d="M605 80 L605 120 L470 120 L470 150" marker-end="url(#ar)"/>
+          <text x="232" y="108" class="svgnote" font-size="10.5">50% match on covered services</text>
+          <text x="500" y="108" class="svgnote" font-size="10.5">the other two-thirds</text>
+
+          <!-- DDS -->
+          <rect class="svgbox" x="280" y="152" width="260" height="60" rx="3"/>
+          <text x="410" y="178" text-anchor="middle" class="svglabel" font-size="14.5" font-weight="600">Dept. of Developmental Services</text>
+          <text x="410" y="197" text-anchor="middle" class="svgsub" font-size="11.5">~$19B/yr &middot; about a third federal</text>
+
+          <!-- DDS to RC -->
+          <path class="flow" d="M410 212 L410 256" marker-end="url(#ar)"/>
+          <text x="424" y="240" class="svgnote" font-size="10.5">Purchase of Services + Operations</text>
+
+          <!-- Regional Centers -->
+          <rect class="svgbox np" x="250" y="258" width="320" height="64" rx="3"/>
+          <text x="410" y="282" text-anchor="middle" class="svglabel" font-size="14.5" font-weight="600">21 Nonprofit Regional Centers</text>
+          <text x="410" y="301" text-anchor="middle" class="svgsub" font-size="11.5">the buyers: eligibility, the plan, the placement, the payment</text>
+          <text x="410" y="316" text-anchor="middle" class="svgnote" font-size="10">required by statute to be private nonprofits</text>
+
+          <!-- generic resources gate -->
+          <path class="flow" d="M410 322 L410 382" marker-end="url(#ar)"/>
+          <rect x="300" y="338" width="220" height="26" rx="13" fill="#F0DEDA" stroke="#7B2E2A" stroke-width="1"/>
+          <text x="410" y="355" text-anchor="middle" class="svgkey" font-size="10.5">GENERIC RESOURCES FIRST</text>
+
+          <!-- providers -->
+          <rect class="svgbox" x="280" y="384" width="260" height="60" rx="3"/>
+          <text x="410" y="409" text-anchor="middle" class="svglabel" font-size="14" font-weight="600">Vendorized Providers</text>
+          <text x="410" y="428" text-anchor="middle" class="svgsub" font-size="11.5">for-profit &amp; nonprofit homes</text>
+
+          <!-- rate callout right -->
+          <line class="flow dash" x1="540" y1="414" x2="612" y2="414"/>
+          <rect x="612" y="356" width="196" height="118" rx="3" fill="#EBE3D1" stroke="#D8CCB0"/>
+          <text x="624" y="376" class="svgkey" font-size="10">THE RATE, THREE WAYS</text>
+          <text x="624" y="397" class="svgsub" font-size="11">standard schedule</text>
+          <text x="624" y="411" class="svgnote" font-size="10">(being cut)</text>
+          <text x="624" y="430" class="svgsub" font-size="11" fill="#7B2E2A" style="font-weight:600">severe end: per person</text>
+          <text x="624" y="444" class="svgnote" font-size="10">individualized, by acuity</text>
+          <text x="624" y="463" class="svgsub" font-size="11">safety net: negotiated</text>
+
+          <!-- SSI/SSP channel left -->
+          <rect class="svgbox" x="14" y="356" width="180" height="60" rx="3"/>
+          <text x="104" y="380" text-anchor="middle" class="svglabel" font-size="13" font-weight="600">SSI + SSP</text>
+          <text x="104" y="399" text-anchor="middle" class="svgsub" font-size="10.5">federal + state cash</text>
+          <path class="flow" d="M104 416 L104 540 L300 540" marker-end="url(#ar)"/>
+          <text x="20" y="470" class="svgnote" font-size="10">room &amp; board</text>
+          <text x="20" y="484" class="svgnote" font-size="10">~$1,444/mo</text>
+          <text x="20" y="505" class="svgnote" font-size="9.5" fill="#7B2E2A">Medicaid may not</text>
+          <text x="20" y="517" class="svgnote" font-size="9.5" fill="#7B2E2A">pay for a roof</text>
+
+          <!-- providers to person -->
+          <path class="flow ox" d="M410 444 L410 516" marker-end="url(#arox)"/>
+          <text x="424" y="486" class="svgsub" font-size="11" fill="#7B2E2A" style="font-weight:600">care &amp; supervision</text>
+
+          <!-- DDS-direct bypass -->
+          <path class="flow dash" d="M540 182 L700 182 L700 414 L540 414" marker-end="url(#ar)"/>
+          <text x="702" y="270" text-anchor="middle" class="svgnote" font-size="9.5" transform="rotate(90 702 270)">DDS-direct bypass &middot; highest rate</text>
+
+          <!-- person -->
+          <rect class="svgbox hi" x="300" y="518" width="220" height="58" rx="3"/>
+          <text x="410" y="543" text-anchor="middle" class="svglabel" font-size="14.5" font-weight="600">The Person</text>
+          <text x="410" y="561" text-anchor="middle" class="svgsub" font-size="11.5">an entitlement: no waitlist, no cap</text>
+
+          <!-- bottom lever note -->
+          <line x1="40" y1="606" x2="780" y2="606" stroke="#D8CCB0"/>
+          <text x="410" y="632" text-anchor="middle" class="svgkey" font-size="11.5">Community care draws ~50% federal. The only state institution left is 100% state, about $1M per resident a year.</text>
+        </svg>
+        <figcaption><b>Figure 2 &middot; Follow the Money</b>A dollar of care has two sources that pool inside one state agency and split again before they reach the house. The care is paid by the regional center, only after every other payer is exhausted; the room and board is paid separately, out of the resident's own disability check, because federal Medicaid is forbidden to pay for a roof. The person is an entitlement. The price is the variable.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ======================= III ======================= -->
+    <section class="section">
+      <div class="sec-head"><div class="sec-num">III</div><h2>Severity Is the Moat</h2></div>
+      <p class="epi">"There is no rate. The rate is the home."<cite>The founder of a Central Valley platform</cite></p>
+
+      <p>Here is the exception. For the great mass of ordinary residential and day services, California has spent the last few years doing exactly what a cost-conscious payor does: it built a single statewide fee schedule, a rate model, and it is now squeezing it. As of this writing the state is ending, four months early, the protection that let providers keep their old above-model rates; after the end of February it pays the model and nothing more.<span class="sn-ref">6</span><span class="sidenote"><span class="sn-num">6</span>California Legislative Analyst's Office, 2025-26 Spending Plan; DDS budget update. The rate-reform "hold harmless" ends Feb 28, 2026 (a $75M General Fund saving), cutting above-model providers down to the model. The 10% quality bonus that rides on every rate is separately being tightened for about $221.7M in ongoing savings.</span> If your home bills at the schedule, you are a price-taker, and the price is being cut.</p>
+
+      <p>But the schedule stops where severity begins. For the highest-acuity placements, the homes built for the most dangerous behaviors and the most complex needs, California does not read a rate off a chart. State law requires that the rate be assembled from the bottom up, one person at a time: a fixed amount for the house, and on top of it an individualized amount built from that specific resident's plan of care and the staffing their acuity demands, submitted to the regional center, justified, and approved.<span class="sn-ref">7</span><span class="sidenote"><span class="sn-num">7</span>California Welfare &amp; Institutions Code &sect;4684.81 (enhanced behavioral supports homes) and &sect;4698 (community crisis homes); Title 17 CCR &sect;59072 and &sect;59022. Each sets a fixed facility component plus an individualized services-and-supports component developed per resident from the individual program plan, subject to regional-center review and written approval.</span> The operator I have come to know describes it the way operators describe things, bluntly and a little too confidently: "There is no rate. The rate is the home." He is being rhetorical. There is a rate. It is simply not a number the state can ratchet down across a fee schedule, because there is no schedule here; there is a person, and a level of need, and a price that has to cover the cost of meeting it.</p>
+
+      <p>I want to be precise, because precision is the whole point. This is not a magic exemption. These placements still sit inside the state's rate architecture; the quality bonuses that ride on top are being tightened, and the auditors can and do claw back dollars that are not documented to the service code. Severity escapes the standardized rollback. It does not escape gravity. But here is what gives the individualized price its floor: the cost of the alternative. The only locked state institution California has left runs about a million dollars per resident per year, on the state's own dime, with no federal match at all. A community placement for the same person, even at what looks like a premium, costs the state far less, and draws a federal match besides.<span class="sn-ref">8</span><span class="sidenote"><span class="sn-num">8</span>Disability Rights California (Porterville Q&amp;A); California LAO Report 3735 on developmental-center closure savings. A developmental-center bed historically ran $500K to $700K a year and Porterville's secure unit about $1M, entirely state-funded; a community placement runs a fraction of that and pulls roughly a 50% federal match.</span> The state pays up for severity not out of generosity but because every other option is more expensive, and because the law has made the institution unavailable. When you sell the one thing the buyer cannot get anywhere cheaper, you are not a price-taker. You are negotiating against the cost of a jail cell and a state-hospital bed.</p>
+
+      <p>That is the rate side. Now the operating side, which is where the national platforms actually break.</p>
+
+      <p>There is a barbell in this industry. At one end is the low-acuity, high-volume, standardizable work: the day programs, the lighter group homes, the therapy hours that can be turned into a billing machine and rolled up across state lines. Private equity owns that end and is consolidating it aggressively, and good for them; it is a real business. At the other end is the severe work, and the severe work cannot be proceduralized. It is sixteen-hour shifts and twenty-four-hour shifts and a single staffing failure that becomes a death and then becomes a revoked license. The platforms break here, reliably, and the public record is not ambiguous about it. Sevita, the largest operator in the country, ran the highest-acuity home type California licenses. By the middle of 2023 it had surrendered its California enhanced behavioral home and exited that line in the state entirely, under regulator pressure, with whistleblowers describing staff worked around the clock.<span class="sn-ref">9</span><span class="sidenote"><span class="sn-num">9</span>KQED and the USC Center for Health Journalism (2023). California's Department of Developmental Services confirmed Sevita "no longer operates any EBSHs in California" after it relinquished its one enhanced home (the "Illinois Home") on June 30, 2023; the 16- and 24-hour shifts come from whistleblower accounts, not a published regulatory finding.</span> The national champion was pushed out of precisely the service the severe end is made of.</p>
+
+      <p>You do not even have to read the failures to see it. You can read the winner. The most successful private-equity platform in this entire space, a pharmacy and home-health roll-up that went public and tripled, did not buy its way deeper into severe disability care. It <em>sold</em> its disability-residential business to the junk-rated buyer and walked toward the standardizable end. The smart money's revealed preference is to shed the severe end, not to own it. And the price tags follow the capital: scaled therapy platforms trade at twelve to fifteen times earnings, scaled disability residential around ten, and the small, single-region, high-acuity California operator at six to nine.<span class="sn-ref">10</span><span class="sidenote"><span class="sn-num">10</span>RDM analysis of disclosed IDD and ABA transactions, 2024 to 2026. The pattern is consistent: the more severe and the more sub-scale the asset, the thinner the buyer field and the lower the multiple.</span> The moat is widest exactly where the capital is thinnest. That is not a coincidence; it is the same fact seen from two sides. The work that scares the roll-up away is the work with the deepest barrier around it. A clean compliance record in this business cannot be bought, only earned, over years, and it can be destroyed in a night. A relationship with a regional center is measured in decades. A census never churns, because for these families leaving is a trauma, not a transaction. Severity is the moat.</p>
+
+      <!-- BARBELL -->
+      <figure>
+        <svg viewBox="0 0 800 380" role="img" aria-label="A barbell chart with acuity on the horizontal axis showing capital appetite falling and moat width rising as acuity increases, crossing in the middle">
+          <line x1="70" y1="300" x2="740" y2="300" class="flow" stroke="#D8CCB0"/>
+          <text x="70" y="330" class="svgnote" font-size="12">LOW ACUITY</text>
+          <text x="740" y="330" class="svgnote" font-size="12" text-anchor="end" fill="#7B2E2A" style="font-weight:600">SEVERE</text>
+          <text x="405" y="352" class="svgnote" font-size="11" text-anchor="middle">acuity &rarr;</text>
+
+          <!-- capital appetite: high left, plunge right -->
+          <path d="M70 90 C 260 95, 360 150, 740 285" class="flow" stroke="#4D4638" stroke-width="2"/>
+          <text x="96" y="78" class="svglabel" font-size="13" font-weight="600">capital appetite</text>
+
+          <!-- moat width: low left, rising right -->
+          <path d="M70 285 C 360 250, 470 150, 740 70" class="flow ox" stroke-width="2.4"/>
+          <text x="612" y="60" class="svglabel" font-size="13" font-weight="600" fill="#7B2E2A">moat width</text>
+
+          <!-- national platform cluster low acuity -->
+          <circle cx="120" cy="118" r="4" fill="#4D4638"/><circle cx="150" cy="132" r="4" fill="#4D4638"/>
+          <circle cx="180" cy="120" r="4" fill="#4D4638"/><circle cx="160" cy="150" r="4" fill="#4D4638"/>
+          <circle cx="200" cy="146" r="4" fill="#4D4638"/>
+          <text x="118" y="186" class="svgnote" font-size="11">national</text>
+          <text x="118" y="200" class="svgnote" font-size="11">platforms</text>
+
+          <!-- white space severe -->
+          <rect x="612" y="150" width="118" height="78" rx="3" fill="#F0DEDA" stroke="#7B2E2A" stroke-dasharray="3 3"/>
+          <text x="671" y="178" text-anchor="middle" class="svgkey" font-size="11">THE</text>
+          <text x="671" y="194" text-anchor="middle" class="svgkey" font-size="11">WHITE</text>
+          <text x="671" y="210" text-anchor="middle" class="svgkey" font-size="11">SPACE</text>
+
+          <!-- multiples -->
+          <text x="150" y="285" text-anchor="middle" class="svgsub" font-size="12">12 to 15&times;</text>
+          <text x="405" y="285" text-anchor="middle" class="svgsub" font-size="12">~10&times;</text>
+          <text x="690" y="285" text-anchor="middle" class="svgsub" font-size="12" fill="#7B2E2A" style="font-weight:600">6 to 9&times;</text>
+        </svg>
+        <figcaption><b>Figure 3 &middot; The Barbell</b>As acuity rises, the capital chasing the work collapses and the barrier around it widens. The roll-ups cluster where the work is standardizable and cheap to capital. The severe end is left to the few who can clear the bar. The lowest multiples sit on top of the deepest moat.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ======================= IV ======================= -->
+    <section class="section">
+      <div class="sec-head"><div class="sec-num">IV</div><h2>Where the People Go</h2></div>
+      <p class="epi">"the only state hospital set up to treat criminal defendants with intellectual and developmental disabilities"<cite>CalMatters, on the last California institution</cite></p>
+
+      <p>To understand why the state negotiates the price up rather than down, you have to ask the question the spreadsheets never ask. If this house did not exist, where would the man in it go?</p>
+
+      <p>A generation ago the answer was an institution. California ran a system of large state developmental centers, thirteen thousand beds at its peak. Over twenty-seven years the state closed almost all of it: Stockton, Camarillo, Agnews, Lanterman, Sonoma, Fairview, one after another, the last general-treatment unit shuttered in 2021.<span class="sn-ref">11</span><span class="sidenote"><span class="sn-num">11</span>California DDS developmental-center closures and state facility records. The system was depopulated under the 1993 Coffelt settlement, which suspended new institutional admissions, and reinforced by Olmstead. Only Porterville's secure treatment program remains.</span> What remains is a single locked facility, Porterville, and it is forensic only: you get in through the criminal courts, not through need. The blunt and consequential fact is that California no longer has a long-term, non-forensic state bed to fall back on. The route to a state institution now runs through an arrest.</p>
+
+      <p>So the man goes to the places that absorb people no one will house. He goes to jail, where in California people with cognitive disabilities make up as much as a third of the population, and where a man can wait, as one did, nearly nine years for a competency bed the state cannot supply.<span class="sn-ref">12</span><span class="sidenote"><span class="sn-num">12</span>CalMatters (Dec 2022); the litigation in Stiavetti v. Clendenin over unconstitutional jail delays for defendants found incompetent to stand trial. Roughly 4,000 Californians a year are declared incompetent and warehoused in county jails awaiting a placement.</span> He goes to a locked psychiatric ward, or he boards for weeks in an emergency room because there is nowhere to discharge him, or he goes home to parents no longer strong enough to keep him safe, until the day they cannot, and the crisis becomes the state's anyway, at a far higher price. The community capacity meant to catch him is nearly theoretical: for a system serving half a million people, California has on the order of twenty-five crisis homes and ninety-five enhanced behavioral homes, four beds each. That is the entire severe-end safety net.</p>
+
+      <p>This is the moral center of the thing, and it is also, not by accident, the source of the operator's pricing power. The state is not a generous buyer. It is a cornered one. It is forbidden by a thirty-year-old court settlement from reopening the institutions, and forbidden by the Americans with Disabilities Act, as the Supreme Court read it in Olmstead, from warehousing people it could serve in the community. It has a person it must place, a legal obligation it cannot escape, and almost no one willing to take the hardest cases. When I underwrite the severe end, I am not betting on the kindness of a government program. I am pricing the cost of the alternatives the government has spent thirty years making unavailable to itself.</p>
+
+      <!-- WHERE THE PEOPLE GO -->
+      <figure>
+        <svg viewBox="0 0 800 430" role="img" aria-label="A branching diagram showing that when a placement breaks down, the person either reaches scarce community capacity or falls into closed institutions, jail, the forensic system, emergency rooms, or aging parents">
+          <defs>
+            <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#4D4638"/></marker>
+            <marker id="ar2ox" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#7B2E2A"/></marker>
+          </defs>
+          <rect class="svgbox" x="290" y="20" width="220" height="56" rx="3"/>
+          <text x="400" y="43" text-anchor="middle" class="svglabel" font-size="13.5" font-weight="600">Aging caregiver fails,</text>
+          <text x="400" y="62" text-anchor="middle" class="svglabel" font-size="13.5" font-weight="600">or a placement breaks down</text>
+
+          <!-- branch left: community (scarce) -->
+          <path class="flow ox" d="M340 76 L200 120" marker-end="url(#ar2ox)"/>
+          <rect class="svgbox hi" x="60" y="124" width="260" height="64" rx="3"/>
+          <text x="190" y="148" text-anchor="middle" class="svglabel" font-size="13" font-weight="600" fill="#7B2E2A">Community severe-end home</text>
+          <text x="190" y="167" text-anchor="middle" class="svgsub" font-size="11">~25 crisis + ~95 enhanced homes,</text>
+          <text x="190" y="181" text-anchor="middle" class="svgsub" font-size="11">statewide. Four beds each.</text>
+          <text x="190" y="208" text-anchor="middle" class="svgkey" font-size="11">SCARCE</text>
+
+          <!-- branch right: the fallbacks -->
+          <path class="flow" d="M460 76 L560 110" marker-end="url(#ar2)"/>
+
+          <!-- closed institutions (struck) -->
+          <rect x="500" y="118" width="280" height="40" rx="3" fill="#EBE3D1" stroke="#B3A98F" stroke-dasharray="4 3"/>
+          <text x="640" y="143" text-anchor="middle" font-size="12.5" fill="#B3A98F" font-family="var(--body)" text-decoration="line-through" style="text-decoration:line-through">Closed state institutions (13,000 beds, gone)</text>
+
+          <!-- arrest -> porterville -->
+          <rect class="svgbox" x="500" y="172" width="280" height="44" rx="3" stroke="#7B2E2A"/>
+          <text x="640" y="190" text-anchor="middle" class="svglabel" font-size="12.5" font-weight="600" fill="#7B2E2A">Arrest &rarr; court &rarr; Porterville</text>
+          <text x="640" y="207" text-anchor="middle" class="svgsub" font-size="10.5">the last state bed, forensic only</text>
+
+          <!-- jail -->
+          <rect class="svgbox" x="500" y="228" width="135" height="40" rx="3"/>
+          <text x="567" y="247" text-anchor="middle" class="svglabel" font-size="12">County jail</text>
+          <text x="567" y="261" text-anchor="middle" class="svgsub" font-size="9.5">~1/3 disabled</text>
+          <!-- ER -->
+          <rect class="svgbox" x="645" y="228" width="135" height="40" rx="3"/>
+          <text x="712" y="247" text-anchor="middle" class="svglabel" font-size="12">ER boarding</text>
+          <text x="712" y="261" text-anchor="middle" class="svgsub" font-size="9.5">for weeks</text>
+          <!-- homeless/parents -->
+          <rect class="svgbox" x="500" y="280" width="280" height="40" rx="3"/>
+          <text x="640" y="305" text-anchor="middle" class="svglabel" font-size="12">Homeless, or aging parents until collapse</text>
+
+          <path class="flow" d="M640 158 L640 172" marker-end="url(#ar2)"/>
+          <path class="flow" d="M640 216 L640 228" marker-end="url(#ar2)"/>
+          <path class="flow" d="M640 268 L640 280" marker-end="url(#ar2)"/>
+
+          <line x1="60" y1="360" x2="780" y2="360" stroke="#D8CCB0"/>
+          <text x="400" y="392" text-anchor="middle" class="svgkey" font-size="14">The route to a state bed now runs through an arrest.</text>
+          <text x="400" y="412" text-anchor="middle" class="svgnote" font-size="11">Every fallback costs the state more than the community placement it failed to fund.</text>
+        </svg>
+        <figcaption><b>Figure 4 &middot; Where the People Go</b>With the institutions closed and re-institutionalization barred by court order, the person who falls out of community care lands in jail, the forensic system, an emergency room, or back with parents who cannot cope. The state is not a generous buyer of severe-end care. It is a cornered one.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ======================= V ======================= -->
+    <section class="section">
+      <div class="sec-head"><div class="sec-num">V</div><h2>What the State, and Washington, Want</h2></div>
+      <p class="epi">"What is the goal of every bureaucracy? The welfare department is not trying to get smaller."<cite>The founder</cite></p>
+
+      <p>If the state is a cornered buyer, it is worth understanding exactly what corners it, because the answer is not what an outsider would guess. The system is not driven by thrift. It is driven by two things: a legal obligation it cannot shed, and an appetite to grow.</p>
+
+      <p>California is the only state in the country that treats disability services as a true entitlement. Under a 1969 law, anyone the system finds eligible has a right to services, with no waiting list and no cap, and in 1985 the state Supreme Court held that the government may not quietly cut those services to balance a budget.<span class="sn-ref">13</span><span class="sidenote"><span class="sn-num">13</span>The Lanterman Developmental Disabilities Services Act (1969); <em>Association for Retarded Citizens v. DDS</em>, 38 Cal.3d 384 (1985), holding the state may not administratively reduce statutory services for budget reasons. The Legislative Analyst's Office describes the resulting budget as "non-discretionary" and caseload-driven.</span> That single ruling is why, in every downturn, the state reaches for the one lever it is allowed to pull. It cannot turn people away, so it squeezes the price. It froze provider rates in 2003 and held them frozen for a decade; it cut them again through the Great Recession; it is squeezing them now, ending the rate protection early and tightening the quality bonus, while an organized lobby of parents and providers fights it to a draw every June.<span class="sn-ref">14</span><span class="sidenote"><span class="sn-num">14</span>LAO 2012-13 Developmental Services Budget Update: rates frozen from 2003, a 3% provider reduction (FY2009-10) raised to a cumulative 4.25% (FY2010-11 through FY2011-12), lifted July 1, 2013. After a decade of suppression, the 2019 Burns rate study found about $1.8B of underfunding, and 2024 rate reform raised many rates 30 to 50%. Rate risk runs in both directions.</span> The politician's revealed preference is exact: protect the count of people served, loudly, and squeeze the price paid to providers, quietly.</p>
+
+      <p>But the deeper driver is growth, and here the operator's cynicism is more clarifying than any policy paper. The state does not experience a new disabled Californian as a cost. It experiences him as a draw on the federal treasury. Every person it can move onto a federally matched waiver brings Washington's money into California, which is how a program that cost four billion dollars a decade ago costs nineteen billion now. "The welfare department is not trying to get smaller," the operator told me, which is the entire political economy in eight words. And what the system rewards, in the end, is not clinical outcomes, which it does not really measure, but jobs and the absence of catastrophe. "What does every politician say? Jobs, jobs, jobs." A provider who employs a hundred people in a legislator's district and never produces a headline is not a vendor. He is a constituent the system needs.</p>
+
+      <!-- FEDERAL MATCH LEVER -->
+      <figure>
+        <svg viewBox="0 0 800 300" role="img" aria-label="Two bars comparing community placement, half funded by the federal government, against the state institution, funded entirely by the state at a far higher cost">
+          <line x1="120" y1="250" x2="700" y2="250" stroke="#D8CCB0"/>
+          <!-- community bar -->
+          <rect x="180" y="178" width="120" height="36" fill="#7B2E2A"/>
+          <rect x="180" y="178" width="60" height="36" fill="#C98A52"/>
+          <rect x="180" y="178" width="120" height="72" fill="none" stroke="#591F1C"/>
+          <text x="240" y="172" text-anchor="middle" class="svglabel" font-size="13" font-weight="600">Community placement</text>
+          <text x="210" y="200" text-anchor="middle" font-size="10" fill="#3a2a18" font-family="var(--body)">federal</text>
+          <text x="270" y="200" text-anchor="middle" font-size="10" fill="#fff" font-family="var(--body)">state</text>
+          <text x="240" y="268" text-anchor="middle" class="svgsub" font-size="11">~half paid by Washington</text>
+
+          <!-- institution bar -->
+          <rect x="500" y="70" width="120" height="180" fill="#591F1C"/>
+          <text x="560" y="58" text-anchor="middle" class="svglabel" font-size="13" font-weight="600">State institution</text>
+          <text x="560" y="165" text-anchor="middle" font-size="11" fill="#fff" font-family="var(--body)">100% state</text>
+          <text x="560" y="268" text-anchor="middle" class="svgsub" font-size="11">~$1M/yr, no federal match</text>
+
+          <text x="400" y="120" text-anchor="middle" class="svgkey" font-size="12">When the federal</text>
+          <text x="400" y="138" text-anchor="middle" class="svgkey" font-size="12">match is cut,</text>
+          <text x="400" y="156" text-anchor="middle" class="svgkey" font-size="12">the state pays</text>
+          <text x="400" y="174" text-anchor="middle" class="svgkey" font-size="12">the whole thing,</text>
+          <text x="400" y="192" text-anchor="middle" class="svgkey" font-size="12">and the rate</text>
+          <text x="400" y="210" text-anchor="middle" class="svgkey" font-size="12">gets squeezed.</text>
+        </svg>
+        <figcaption><b>Figure 5 &middot; The Federal-Match Lever</b>Washington pays roughly half of community care and none of the institution. That is the federal incentive to keep people in the community, and the federal risk: when the match falls, California backfills from its own General Fund, and the only lever it has is the provider rate.</figcaption>
+      </figure>
+
+      <p>Now widen the lens to Washington, which sits above all of this and pulls in two directions at once. It is the reason the community provider exists at all: federal law, through Olmstead and the Justice Department that enforces it, pushes people out of institutions, and the federal match makes community care cheaper for the state than the institution it replaced. But the same federal government is now withdrawing money on a scale this system has never faced. The 2025 reconciliation law cuts federal Medicaid by roughly nine hundred billion dollars over a decade, by the Congressional Budget Office's reckoning, through work requirements and provider-tax limits and the rest of the machinery.<span class="sn-ref">15</span><span class="sidenote"><span class="sn-num">15</span>CBO, via KFF: about $911B net in federal Medicaid reductions over 2025-2034. People with disabilities are largely shielded from the coverage provisions (work requirements fall on the ACA expansion population, with disability exemptions). Per-capita caps and a cut to the expansion match were debated but did not pass. Treat the figures as CBO projections.</span> People with severe disabilities are largely shielded from the coverage cuts; they are not the target. But money is fungible, and the timing is the part an investor must sit with. The mechanisms begin to bite in 2027, yet roughly three-quarters of the dollars come out in the back half of the decade, between 2030 and 2034.<span class="sn-ref">16</span><span class="sidenote"><span class="sn-num">16</span>KFF's allocation of the CBO score: about 76% of the ten-year reductions land in 2030-2034. The California LAO estimates the law raises net Medi-Cal state costs by roughly $3.2B through 2029-30, against a structural deficit widening toward $22B. A fund buying in 2026 meets the heaviest cuts in its exit window.</span> California, which already funds two-thirds of this system from its own General Fund and faces a widening deficit, will have to backfill, and the only lever it has is the one it always pulls. A fund that buys this cash flow in 2026 absorbs the squeeze precisely as it is trying to sell. The federal overhang is real. It is not a reason to avoid the asset. It is a reason to buy it cheaply, and to buy it at the severe end, where the price is floored by the cost of the alternative rather than by a schedule the state can simply cut.</p>
+    </section>
+
+    <!-- ======================= VI ======================= -->
+    <section class="section">
+      <div class="sec-head"><div class="sec-num">VI</div><h2>California Is the Moat</h2></div>
+      <p class="epi">"private nonprofit community agencies shall be utilized by the state"<cite>California Welfare &amp; Institutions Code &sect;4620, on the regional centers</cite></p>
+
+      <p>There is a lazy version of the bear case that says: it's California, the worst state in the country to do business, the highest taxes and the heaviest regulation, and you want to plant capital there. I want to take that seriously and then turn it over, because the regulation that terrifies generalist capital is, in this specific business, the wall around the moat.</p>
+
+      <p>Start with what California is. It is an entitlement, and an entitlement is a demand floor no other state offers. Everywhere else, disability services are rationed by a waiver with a fixed number of slots and a waiting list that runs for years; more than seven hundred thousand Americans are on those lists right now. California has no list. The person is owed the service. That does not protect the price, and I have been careful throughout to keep the two apart: the entitlement protects volume, not margin. But it means the demand under this asset cannot be legislated away or capped, which is more than almost any healthcare cash flow can say.</p>
+
+      <p>Now layer on the part that cannot be moved. A California provider in this business holds a stack of credentials that exist only in California and only at a specific address: a facility license from one state agency, a specialty certification from another, and a vendor number issued by each regional center it works with, for each kind of service, none of it transferable.<span class="sn-ref">17</span><span class="sidenote"><span class="sn-num">17</span>The license is issued under Title 22 and does not convey on sale (the buyer files a new application); the specialty certification is issued by DDS under Title 17; the vendor number is issued per entity, per regional center, per service code. The certified administrator is credentialed as an individual. Closing therefore runs six to nine months for regulatory re-approval, against a normal 60 to 90 days.</span> The license does not convey when the business is sold; the buyer applies for a new one. The administrator who holds the home together is certified as an individual, not as a company asset. Closing an acquisition takes not the usual two or three months but six to nine, because the regulators must re-approve the whole stack. You cannot pick this business up and carry it to Texas, and you would not want to: Texas is a waiting-list state with lower rates. The thicket that makes generalist investors run is the same thicket that means perhaps five to ten operators in the entire state can clear the bar to do the severe work at all. Much of what those generalists are actually afraid of, the new California laws policing private equity in healthcare, does not even apply here; those laws were written for physician and dental practices, not for the kind of licensed community home this is.<span class="sn-ref">18</span><span class="sidenote"><span class="sn-num">18</span>SB 351, AB 1415, and the office of health-care affordability review target physician and dental management structures, not Title 22 community-care facilities. Generalist capital mis-prices the asset by applying physician-practice rules to a community home.</span> They are pricing the wrong risk, and their fear is my barrier to entry.</p>
+
+      <p>Then comes the strangest and most important structural fact, the one that took me longest to understand. This entire system is built on nonprofits, and that is not an accident of culture; it is written into the statute. The law requires that the regional centers, the twenty-one buyers that sit between the state and every provider, be private nonprofit corporations.<span class="sn-ref">19</span><span class="sidenote"><span class="sn-num">19</span>Welfare &amp; Institutions Code &sect;4620 and &sect;4621: the Legislature found the work "of such a special and unique nature" that the state should not run it directly, and mandated private nonprofit corporations as regional centers. The mandate binds the 21 intermediaries, not the providers beneath them, who may be for-profit or nonprofit.</span> The provider world beneath them grew out of a parent movement that began in the 1950s, out of church groups and family cooperatives, and it is still overwhelmingly nonprofit and small: ten thousand providers nationally, most under five million dollars in revenue, none with real scale. The consensus reads that fragmentation as a roll-up opportunity, and at the low-acuity end it is one. But two things about the nonprofit base change the picture at the severe end. First, you cannot actually buy a nonprofit. Its assets are locked in a charitable trust; converting it requires the state attorney general's consent and a fair-value appraisal; there is no equity to acquire. The buyable universe is only the for-profit slice of a historically nonprofit market.<span class="sn-ref">20</span><span class="sidenote"><span class="sn-num">20</span>A nonprofit public-benefit corporation holds its assets in charitable trust and cannot convert to for-profit without the California Attorney General's written consent and an independent valuation. Private equity has acquired more than a thousand disability and elder-care providers since 2013, but it buys the for-profit operators; it does not, and largely cannot, harvest a nonprofit's enterprise value.</span> Second, and more important, the nonprofit and the mom-and-pop cannot fund the severe end. A purpose-built home for the most dangerous behaviors, with a secure perimeter and the staffing ratios the acuity demands, takes capital that a small nonprofit running on a mission and a thin margin does not have, and the founders who built these little organizations in the 1980s are aging out with no succession. So the severe end is starved of capital and starved of operators at the very moment the demographic wave is cresting. That is the white space. It is not that the market resists consolidation; the low end is consolidating fast. It is that the severe end is structurally unbuilt, and almost no one with both the capital and the competence is building it. The operator I am backing keeps his own real estate and runs for profit precisely so that someone, finally, owns the outcome.</p>
+    </section>
+
+    <!-- ======================= VII ======================= -->
+    <section class="section">
+      <div class="sec-head"><div class="sec-num">VII</div><h2>The Mispricing</h2></div>
+      <p class="epi">"Be fearful when others are greedy, and greedy when others are fearful."<cite>Warren Buffett</cite></p>
+
+      <p>Put it together and you arrive at a mispricing hiding in plain sight, of a kind that does not come along often.</p>
+
+      <p>On one side, the demand under this asset is a demographic and legal certainty: an aging-caregiver cliff with no institutional backstop, an entitlement that cannot be capped, a years-long national waiting list for the rationed version of the same service. On the other side, the capital that would normally chase a cash flow like that is running the other way as fast as it can. The largest national operator is junk-rated and was pushed out of the severe line. The antitrust regulators just forced the biggest deal in the sector to divest more than a hundred facilities.<span class="sn-ref">21</span><span class="sidenote"><span class="sn-num">21</span>The Federal Trade Commission's January 2026 consent order required Sevita to divest 128 intermediate-care facilities to clear its acquisition of a competitor's residential business. Roll-up at national scale now draws antitrust friction; even the winner had to shrink.</span> The marquee platforms are stuck in holds they cannot exit, and the whole industry is bracing for the federal cuts. The buyer universe for severe-end disability care is thinning at the precise moment the need is surging. That is the setup value investors wait years for: a durable, non-cyclical, legally protected cash flow that the marginal buyer has been trained to flee.</p>
+
+      <p>The market is pricing one number and missing the asset behind it. It sees ninety-five percent of revenue from a single government payor and reads a single point of failure. I see a sovereign-backed annuity on a population the state is legally forbidden to abandon, with a years-long line of people waiting to get in, at a price floored not by a schedule the state can cut but by the cost of the jail cell and the institution that are the only alternatives. The concentration the market fears is the durability I am buying.</p>
+
+      <p>None of which means the price is whatever the seller wants. The discipline is the whole game, and it is the exact opposite of the playbook that bankrupted CARD. You buy at the low end of the range, where the downside still returns your capital even if rates stagnate for years. You do not load the homes with debt and pull a dividend; the leverage that looks clever in the model is the thing that turns a rate freeze into a bankruptcy. You keep the founder, because in this business the relationships and the license literally walk out the door with the person. And you understand, in a way the cost-cutters never did, that here the moral architecture and the financial architecture are the same structure. The way you destroy this asset is to cut the staffing, which fails the compliance, which loses the license, which empties the home. Quality is not a constraint on the return. At the severe end, quality <em>is</em> the return.</p>
+    </section>
+
+    <!-- ======================= CODA ======================= -->
+    <section class="section">
+      <div class="rule-orn"><span>&sect;</span></div>
+      <p>Go back to the house. The lawn, the basketball hoop, the man in his forties who will not be going to an institution because there is no institution left to send him to, and who is not in a jail cell because someone was willing to take him. Four people will care for him tonight, and the state will pay for it, because every other option costs more and most of them are illegal. The returns on this are real, and I intend to earn them. But the reason the moat is durable is not financial engineering. It is that the work is genuinely hard, and genuinely good, and almost no one with capital is willing to do it well.</p>
+
+      <p>That is the whole thesis, and it has been hiding in the part of the system everyone was trained to look away from. Trust the trendline. The fear is the moat. <strong>Severity is the moat.</strong></p>
+
+      <p class="sign">RDM Partners &middot; June 2026</p>
+    </section>
+
+  </article>
+
+  <section class="endnotes col" aria-label="Notes and sources">
+    <h3>Notes &amp; Sources</h3>
+    <ol>
+      <li>Perspective and blinding note. The operator and the platform are real and unnamed; quotations are from a 2026 founder interview.</li>
+      <li><a href="https://www.nbcnews.com/health/health-care/card-blackstone-kids-autism-private-equity-bankruptcy-rcna118544" target="_blank" rel="noopener">NBC News</a> on CARD and Blackstone; <a href="https://proto.life/2024/02/autism-and-private-equity-a-cautionary-tale/" target="_blank" rel="noopener">proto.life</a>; <a href="https://bhbusiness.com/2023/07/27/bankruptcy-court-approves-48-5m-sale-of-card-buyers-to-split-up-company/" target="_blank" rel="noopener">Behavioral Health Business</a> on the July 2023 sale.</li>
+      <li><a href="https://proto.life/2024/02/autism-and-private-equity-a-cautionary-tale/" target="_blank" rel="noopener">proto.life</a>, summarizing the Center for Economic and Policy Research, on CARD's Medicaid mix and losses.</li>
+      <li><a href="https://pestakeholder.org/reports/private-equity-in-intellectual-and-developmental-disability-services/" target="_blank" rel="noopener">Private Equity Stakeholder Project</a>; <a href="https://stateline.org/2025/05/16/private-equity-snaps-up-disability-services-challenging-state-regulators/" target="_blank" rel="noopener">Stateline</a> (May 2025) on Sevita's rating and dividend recapitalizations.</li>
+      <li><a href="https://www.kff.org/medicaid/a-look-at-waiting-lists-for-medicaid-home-and-community-based-services-from-2016-to-2024/" target="_blank" rel="noopener">KFF</a> on HCBS waiver waiting lists; <a href="https://www.cdc.gov/ncbddd/autism/data.html" target="_blank" rel="noopener">CDC</a> autism prevalence; Medicaid.gov on aging caregivers.</li>
+      <li><a href="https://lao.ca.gov/Publications/Report/5086" target="_blank" rel="noopener">California LAO, 2025-26 Spending Plan: Human Services</a>; <a href="https://www.dds.ca.gov/newsletter/2025-26-state-budget-update-for-developmental-services/" target="_blank" rel="noopener">DDS budget update</a> (hold-harmless and quality-incentive changes).</li>
+      <li><a href="https://california.public.law/codes/welfare_and_institutions_code_section_4684.81" target="_blank" rel="noopener">Cal. Welf. &amp; Inst. Code &sect;4684.81</a>, &sect;4698; <a href="https://www.dds.ca.gov/general/eligibility/enhanced-behavioral-supports-homes/" target="_blank" rel="noopener">DDS rules</a> for the two-component severe-end rate (Tit. 17 &sect;59072, &sect;59022).</li>
+      <li><a href="https://www.disabilityrightsca.org/latest-news/porterville-developmental-center-qa" target="_blank" rel="noopener">Disability Rights California, Porterville Q&amp;A</a>; <a href="https://lao.ca.gov/Publications/Report/3735" target="_blank" rel="noopener">California LAO Report 3735</a> on closure costs.</li>
+      <li><a href="https://www.kqed.org/news/11969597/whistleblowers-call-out-california-group-home-for-abuse-against-disabled-residents" target="_blank" rel="noopener">KQED</a> / USC Center for Health Journalism (2023) on Sevita's California enhanced-home exit.</li>
+      <li>RDM analysis of disclosed IDD and ABA transactions, 2024 to 2026 (illustrative multiple ranges).</li>
+      <li><a href="https://www.dds.ca.gov/services/state-facilities/dc-closures/" target="_blank" rel="noopener">California DDS developmental-center closures</a>; the 1993 <a href="https://clearinghouse.net/case/433/" target="_blank" rel="noopener">Coffelt settlement</a>; <a href="https://supreme.justia.com/cases/federal/us/527/581/" target="_blank" rel="noopener">Olmstead v. L.C.</a> (1999).</li>
+      <li><a href="https://calmatters.org/justice/2022/12/california-jails-disabled-competency-delays/" target="_blank" rel="noopener">CalMatters</a> (Dec 2022); <em>Stiavetti v. Clendenin</em> on incompetent-to-stand-trial jail backlogs.</li>
+      <li><a href="https://law.justia.com/cases/california/supreme-court/3d/38/384.html" target="_blank" rel="noopener"><em>Association for Retarded Citizens v. DDS</em>, 38 Cal.3d 384 (1985)</a>; <a href="https://www.dds.ca.gov/newsletter/the-lanterman-act-entitlement-a-promise-that-sets-california-apart/" target="_blank" rel="noopener">DDS on the Lanterman entitlement</a>.</li>
+      <li><a href="https://lao.ca.gov/analysis/2012/health/developmental-services-budget-update-030112.aspx" target="_blank" rel="noopener">California LAO, 2012-13 Developmental Services Budget Update</a>; <a href="https://www.dds.ca.gov/rc/vendor-provider/rate-study/" target="_blank" rel="noopener">DDS rate study</a>; 2024 rate reform.</li>
+      <li><a href="https://www.kff.org/medicaid/allocating-cbos-estimates-of-federal-medicaid-spending-reductions-across-the-states-enacted-reconciliation-package/" target="_blank" rel="noopener">CBO via KFF</a> on the 2025 reconciliation Medicaid reductions, disability exemptions, and provisions that did not pass.</li>
+      <li><a href="https://www.kff.org/medicaid/allocating-cbos-estimates-of-federal-medicaid-spending-reductions-across-the-states-enacted-reconciliation-package/" target="_blank" rel="noopener">KFF allocation of the CBO score</a> (about 76% of cuts in 2030-2034); <a href="https://lao.ca.gov/Publications/Report/5092" target="_blank" rel="noopener">California LAO Medi-Cal Fiscal Outlook</a> on state backfill.</li>
+      <li><a href="https://www.dds.ca.gov/rc/vendor-provider/vendorization-process/" target="_blank" rel="noopener">DDS vendorization</a>; <a href="https://www.cdss.ca.gov/inforesources/community-care/administrator-certification" target="_blank" rel="noopener">CDSS administrator certification</a> (Title 22 license; Title 17 specialty certification).</li>
+      <li><a href="https://www.dwt.com/insights/2025/10/california-pe-hedge-funds-healthcare" target="_blank" rel="noopener">Davis Wright Tremaine</a> on SB 351, AB 1415, and OHCA review (physician and dental structures, not Title 22 homes).</li>
+      <li><a href="https://california.public.law/codes/welfare_and_institutions_code_section_4620" target="_blank" rel="noopener">Cal. Welf. &amp; Inst. Code &sect;4620</a> and <a href="https://california.public.law/codes/welfare_and_institutions_code_section_4621" target="_blank" rel="noopener">&sect;4621</a> (regional centers as private nonprofit corporations).</li>
+      <li><a href="https://oag.ca.gov/charities" target="_blank" rel="noopener">California Attorney General, Charities</a> on nonprofit conversion; <a href="https://pestakeholder.org/reports/private-equity-in-intellectual-and-developmental-disability-services/" target="_blank" rel="noopener">Private Equity Stakeholder Project</a> (1,000+ acquisitions, 2013-2023).</li>
+      <li><a href="https://www.ftc.gov/news-events/news/press-releases/2026/01/ftc-takes-action-prevent-anticompetitive-healthcare-services-merger" target="_blank" rel="noopener">Federal Trade Commission consent order</a> (Jan 2026) requiring divestiture of 128 facilities.</li>
+    </ol>
+  </section>
+
+  <p class="colophon col">A thought-leadership essay. It draws on public statutes, agency budgets, court records, ratings, and journalism, and on a private interview rendered here only in blinded, illustrative terms. Figures attributed to the Congressional Budget Office or the Legislative Analyst's Office are projections. Nothing here is an offer of any security or a recommendation to buy or sell anything. It is one investor's argument about where the consensus is wrong.</p>
+
+</div>
+</body>
+</html>
